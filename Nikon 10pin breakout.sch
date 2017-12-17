@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.3.1">
+<eagle version="8.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -425,6 +425,9 @@
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="103,1,58.42,30.48,U$1,NC,NC,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>
