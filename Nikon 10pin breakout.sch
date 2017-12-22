@@ -174,16 +174,16 @@
 <package name="TH">
 <circle x="0" y="0" radius="3.25" width="0.127" layer="21"/>
 <dimension x1="3.25" y1="0" x2="-3.25" y2="0" x3="0" y3="-9.75" textsize="1.27" layer="47" dtype="diameter"/>
-<pad name="NC" x="0" y="-0.75" drill="0.3"/>
-<pad name="AUTOFOCUS" x="0" y="0.75" drill="0.3"/>
-<pad name="RX" x="-1" y="2" drill="0.3"/>
-<pad name="IO" x="1" y="2" drill="0.3"/>
-<pad name="SIGNAL_GND" x="2" y="1" drill="0.3"/>
-<pad name="POWER_GND" x="2" y="-1" drill="0.3"/>
-<pad name="METER" x="-2" y="-1" drill="0.3"/>
-<pad name="VBATT" x="-2" y="1" drill="0.3"/>
-<pad name="SHUTTER" x="-1" y="-2" drill="0.3"/>
-<pad name="TX" x="1" y="-2" drill="0.3"/>
+<pad name="NC" x="0" y="-0.75" drill="0.6"/>
+<pad name="AUTOFOCUS" x="0" y="0.75" drill="0.6"/>
+<pad name="RX" x="-1" y="2" drill="0.6"/>
+<pad name="IO" x="1" y="2" drill="0.6"/>
+<pad name="SIGNAL_GND" x="2" y="1" drill="0.6"/>
+<pad name="POWER_GND" x="2" y="-1" drill="0.6"/>
+<pad name="METER" x="-2" y="-1" drill="0.6"/>
+<pad name="VBATT" x="-2" y="1" drill="0.6"/>
+<pad name="SHUTTER" x="-1" y="-2" drill="0.6"/>
+<pad name="TX" x="1" y="-2" drill="0.6"/>
 <wire x1="-2.5" y1="0" x2="-3" y2="0.5" width="0.127" layer="21" curve="90"/>
 <wire x1="-3" y1="-0.5" x2="-2.5" y2="0" width="0.127" layer="21" curve="90"/>
 <wire x1="0" y1="2.5" x2="0.5" y2="3" width="0.127" layer="21" curve="90"/>
@@ -243,7 +243,7 @@
 </library>
 <library name="Seeed-Connector" urn="urn:adsk.eagle:library:478">
 <packages>
-<package name="H10-2.54" library_version="1">
+<package name="H10-2.54" urn="urn:adsk.eagle:footprint:33050/1" library_version="1">
 <wire x1="-1.27" y1="12.7" x2="1.27" y2="12.7" width="0.127" layer="21"/>
 <wire x1="1.27" y1="12.7" x2="1.27" y2="-12.7" width="0.127" layer="21"/>
 <wire x1="1.27" y1="-12.7" x2="-1.27" y2="-12.7" width="0.127" layer="21"/>
@@ -268,8 +268,12 @@
 <rectangle x1="-1.27" y1="-12.7" x2="1.27" y2="12.7" layer="39"/>
 </package>
 </packages>
+<packages3d>
+<package3d name="H10-2.54" urn="urn:adsk.eagle:package:33117/1" type="box" library_version="1">
+</package3d>
+</packages3d>
 <symbols>
-<symbol name="HEADER-10P" library_version="1">
+<symbol name="HEADER-10P" urn="urn:adsk.eagle:symbol:33049/1" library_version="1">
 <wire x1="-1.27" y1="12.7" x2="3.81" y2="12.7" width="0.1524" layer="94"/>
 <wire x1="3.81" y1="12.7" x2="3.81" y2="-12.7" width="0.1524" layer="94"/>
 <wire x1="3.81" y1="-12.7" x2="-1.27" y2="-12.7" width="0.1524" layer="94"/>
@@ -289,7 +293,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="DIP-LONG-BLUE-FEMALE-HEADER(10P-2.54)" prefix="J" uservalue="yes" library_version="1">
+<deviceset name="DIP-LONG-BLUE-FEMALE-HEADER(10P-2.54)" urn="urn:adsk.eagle:component:33171/1" prefix="J" uservalue="yes" library_version="1">
 <description>320030001</description>
 <gates>
 <gate name="G$1" symbol="HEADER-10P" x="0" y="0"/>
@@ -308,6 +312,9 @@
 <connect gate="G$1" pin="8" pad="8"/>
 <connect gate="G$1" pin="9" pad="9"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:33117/1"/>
+</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="VALUE" value="10p-2.54" constant="no"/>
@@ -329,7 +336,7 @@
 </classes>
 <parts>
 <part name="U$1" library="Nikon 10 pin breakout" deviceset="NIKON_10_PIN" device="IC"/>
-<part name="J1" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" deviceset="DIP-LONG-BLUE-FEMALE-HEADER(10P-2.54)" device="" value="10p-2.54"/>
+<part name="J1" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" deviceset="DIP-LONG-BLUE-FEMALE-HEADER(10P-2.54)" device="" package3d_urn="urn:adsk.eagle:package:33117/1" value="10p-2.54"/>
 </parts>
 <sheets>
 <sheet>
@@ -435,6 +442,16 @@
 Since Version 8.2, EAGLE supports online libraries. The ids
 of those online libraries will not be understood (or retained)
 with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports URNs for individual library
+assets (packages, symbols, and devices). The URNs of those assets
+will not be understood (or retained) with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports the association of 3D packages
+with devices in libraries, schematics, and board files. Those 3D
+packages will not be understood (or retained) with this version.
 </note>
 </compatibility>
 </eagle>

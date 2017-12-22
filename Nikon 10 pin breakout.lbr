@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.3.1">
+<eagle version="8.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="50" unitdist="mil" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -74,16 +74,16 @@
 <package name="TH">
 <circle x="0" y="0" radius="3.25" width="0.127" layer="21"/>
 <dimension x1="3.25" y1="0" x2="-3.25" y2="0" x3="0" y3="-9.75" textsize="1.27" layer="47" dtype="diameter"/>
-<pad name="NC" x="0" y="-0.75" drill="0.3"/>
-<pad name="AUTOFOCUS" x="0" y="0.75" drill="0.3"/>
-<pad name="RX" x="-1" y="2" drill="0.3"/>
-<pad name="IO" x="1" y="2" drill="0.3"/>
-<pad name="SIGNAL_GND" x="2" y="1" drill="0.3"/>
-<pad name="POWER_GND" x="2" y="-1" drill="0.3"/>
-<pad name="METER" x="-2" y="-1" drill="0.3"/>
-<pad name="VBATT" x="-2" y="1" drill="0.3"/>
-<pad name="SHUTTER" x="-1" y="-2" drill="0.3"/>
-<pad name="TX" x="1" y="-2" drill="0.3"/>
+<pad name="NC" x="0" y="-0.75" drill="0.6"/>
+<pad name="AUTOFOCUS" x="0" y="0.75" drill="0.6"/>
+<pad name="RX" x="-1" y="2" drill="0.6"/>
+<pad name="IO" x="1" y="2" drill="0.6"/>
+<pad name="SIGNAL_GND" x="2" y="1" drill="0.6"/>
+<pad name="POWER_GND" x="2" y="-1" drill="0.6"/>
+<pad name="METER" x="-2" y="-1" drill="0.6"/>
+<pad name="VBATT" x="-2" y="1" drill="0.6"/>
+<pad name="SHUTTER" x="-1" y="-2" drill="0.6"/>
+<pad name="TX" x="1" y="-2" drill="0.6"/>
 <wire x1="-2.5" y1="0" x2="-3" y2="0.5" width="0.127" layer="21" curve="90"/>
 <wire x1="-3" y1="-0.5" x2="-2.5" y2="0" width="0.127" layer="21" curve="90"/>
 <wire x1="0" y1="2.5" x2="0.5" y2="3" width="0.127" layer="21" curve="90"/>

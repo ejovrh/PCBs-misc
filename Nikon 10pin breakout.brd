@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.25" unitdist="mm" unit="mm" style="dots" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
+<grid distance="0.1" unitdist="mm" unit="mm" style="dots" multiple="1" display="yes" altdistance="0.05" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -177,8 +177,8 @@
 <wire x1="-4.5" y1="-22" x2="-2.5" y2="-20" width="0" layer="20" curve="90"/>
 <wire x1="-10.75" y1="3.5" x2="-10.25" y2="4" width="0" layer="20" curve="-90"/>
 <wire x1="4" y1="0" x2="0" y2="-4" width="0" layer="20" curve="-90"/>
-<wire x1="-0.5" y1="-4.5" x2="-0.5" y2="-8" width="0" layer="20"/>
-<wire x1="-1" y1="-8.5" x2="-1.5" y2="-8.5" width="0" layer="20"/>
+<wire x1="-0.5" y1="-4.5" x2="-0.5" y2="-7.9" width="0" layer="20"/>
+<wire x1="-1.1" y1="-8.5" x2="-1.5" y2="-8.5" width="0" layer="20"/>
 <text x="-7.5" y="2.5" size="1.4224" layer="21" font="vector" align="center-left">Vbat</text>
 <text x="-7" y="0" size="1.4224" layer="21" font="vector" align="center-left">RX</text>
 <text x="-7" y="-2.5" size="1.4224" layer="21" font="vector" align="center-left">IO</text>
@@ -190,7 +190,7 @@
 <text x="-7" y="-18" size="1.4224" layer="21" font="vector" align="center-left">AF</text>
 <text x="-7" y="-20.5" size="1.4224" layer="21" font="vector" align="center-left">NC</text>
 <wire x1="-2.5" y1="-9.5" x2="-2.5" y2="-20" width="0" layer="20"/>
-<wire x1="-1" y1="-8.5" x2="-0.5" y2="-8" width="0" layer="20" curve="90"/>
+<wire x1="-1.1" y1="-8.5" x2="-0.5" y2="-7.9" width="0" layer="20" curve="90"/>
 <wire x1="-1.5" y1="-8.5" x2="-2.5" y2="-9.5" width="0" layer="20" curve="90"/>
 <text x="-4" y="1.5" size="1.4224" layer="22" font="vector" rot="MR90" align="top-right">ejovrh
 Nikon 10 Pin Breakout</text>
@@ -204,16 +204,16 @@ Nikon 10 Pin Breakout</text>
 <package name="TH">
 <circle x="0" y="0" radius="3.25" width="0.127" layer="21"/>
 <dimension x1="3.25" y1="0" x2="-3.25" y2="0" x3="0" y3="-9.75" textsize="1.27" layer="47" dtype="diameter"/>
-<pad name="NC" x="0" y="-0.75" drill="0.3"/>
-<pad name="AUTOFOCUS" x="0" y="0.75" drill="0.3"/>
-<pad name="RX" x="-1" y="2" drill="0.3"/>
-<pad name="IO" x="1" y="2" drill="0.3"/>
-<pad name="SIGNAL_GND" x="2" y="1" drill="0.3"/>
-<pad name="POWER_GND" x="2" y="-1" drill="0.3"/>
-<pad name="METER" x="-2" y="-1" drill="0.3"/>
-<pad name="VBATT" x="-2" y="1" drill="0.3"/>
-<pad name="SHUTTER" x="-1" y="-2" drill="0.3"/>
-<pad name="TX" x="1" y="-2" drill="0.3"/>
+<pad name="NC" x="0" y="-0.75" drill="0.6"/>
+<pad name="AUTOFOCUS" x="0" y="0.75" drill="0.6"/>
+<pad name="RX" x="-1" y="2" drill="0.6"/>
+<pad name="IO" x="1" y="2" drill="0.6"/>
+<pad name="SIGNAL_GND" x="2" y="1" drill="0.6"/>
+<pad name="POWER_GND" x="2" y="-1" drill="0.6"/>
+<pad name="METER" x="-2" y="-1" drill="0.6"/>
+<pad name="VBATT" x="-2" y="1" drill="0.6"/>
+<pad name="SHUTTER" x="-1" y="-2" drill="0.6"/>
+<pad name="TX" x="1" y="-2" drill="0.6"/>
 <wire x1="-2.5" y1="0" x2="-3" y2="0.5" width="0.127" layer="21" curve="90"/>
 <wire x1="-3" y1="-0.5" x2="-2.5" y2="0" width="0.127" layer="21" curve="90"/>
 <wire x1="0" y1="2.5" x2="0.5" y2="3" width="0.127" layer="21" curve="90"/>
@@ -227,7 +227,7 @@ Nikon 10 Pin Breakout</text>
 </library>
 <library name="Seeed-Connector" urn="urn:adsk.eagle:library:478">
 <packages>
-<package name="H10-2.54" library_version="1">
+<package name="H10-2.54" urn="urn:adsk.eagle:footprint:33050/1" library_version="1">
 <wire x1="-1.27" y1="12.7" x2="1.27" y2="12.7" width="0.127" layer="21"/>
 <wire x1="1.27" y1="12.7" x2="1.27" y2="-12.7" width="0.127" layer="21"/>
 <wire x1="1.27" y1="-12.7" x2="-1.27" y2="-12.7" width="0.127" layer="21"/>
@@ -252,6 +252,10 @@ Nikon 10 Pin Breakout</text>
 <rectangle x1="-1.27" y1="-12.7" x2="1.27" y2="12.7" layer="39"/>
 </package>
 </packages>
+<packages3d>
+<package3d name="H10-2.54" urn="urn:adsk.eagle:package:33117/1" type="box" library_version="1">
+</package3d>
+</packages3d>
 </library>
 </libraries>
 <attributes>
@@ -437,7 +441,7 @@ design rules under a new name.</description>
 </autorouter>
 <elements>
 <element name="U$1" library="Nikon 10 pin breakout" package="TH" value="NIKON_10_PINIC" x="-0.05" y="0" smashed="yes"/>
-<element name="J1" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" package="H10-2.54" value="10p-2.54" x="-9" y="-9" smashed="yes">
+<element name="J1" library="Seeed-Connector" library_urn="urn:adsk.eagle:library:478" package="H10-2.54" package3d_urn="urn:adsk.eagle:package:33117/1" value="10p-2.54" x="-9" y="-9" smashed="yes">
 <attribute name="NAME" x="-8.365" y="-6.46" size="1.27" layer="33" ratio="10" rot="R90"/>
 </element>
 </elements>
@@ -459,31 +463,39 @@ design rules under a new name.</description>
 <signal name="IO">
 <contactref element="U$1" pad="IO"/>
 <contactref element="J1" pad="3"/>
-<wire x1="-9" y1="-2.65" x2="-4.5513625" y2="-2.65" width="0.2" layer="1"/>
-<wire x1="0.0986375" y1="2" x2="0.95" y2="2" width="0.2" layer="1"/>
-<wire x1="-4.5513625" y1="-2.65" x2="0.0986375" y2="2" width="0.2" layer="1"/>
+<wire x1="-9" y1="-2.65" x2="-5.75" y2="-2.65" width="0.2" layer="1"/>
+<wire x1="0.95" y1="2" x2="0.0986375" y2="2" width="0.2" layer="1"/>
+<wire x1="-1.95068125" y1="-0.04931875" x2="0.0986375" y2="2" width="0.2" layer="1"/>
+<wire x1="-5.75" y1="-2.65" x2="-3.14931875" y2="-0.04931875" width="0.2" layer="1"/>
+<wire x1="-3.14931875" y1="-0.04931875" x2="-1.95068125" y2="-0.04931875" width="0.2" layer="1"/>
 </signal>
 <signal name="SIGNAL_GND">
 <contactref element="U$1" pad="SIGNAL_GND"/>
 <contactref element="J1" pad="4"/>
-<wire x1="0.8" y1="-0.15" x2="1.95" y2="1" width="0.2" layer="16"/>
-<wire x1="0.8" y1="-0.15" x2="-0.3132875" y2="-0.15" width="0.2" layer="16"/>
-<wire x1="-5.3532875" y1="-5.19" x2="-9" y2="-5.19" width="0.2" layer="16"/>
-<wire x1="-0.3132875" y1="-0.15" x2="-5.3532875" y2="-5.19" width="0.2" layer="16"/>
+<wire x1="-0.88033125" y1="-0.86704375" x2="-1.923728125" y2="-1.87545" width="0.2" layer="16"/>
+<wire x1="0.95" y1="0" x2="1.95" y2="1" width="0.2" layer="16"/>
+<wire x1="-0.3606625" y1="0" x2="0.95" y2="0" width="0.2" layer="16"/>
+<wire x1="-0.88033125" y1="-0.86704375" x2="-0.88033125" y2="-0.51966875" width="0.2" layer="16"/>
+<wire x1="-0.88033125" y1="-0.51966875" x2="-0.3606625" y2="0" width="0.2" layer="16"/>
+<wire x1="-1.923728125" y1="-1.87545" x2="-5.238278125" y2="-5.19" width="0.2" layer="16"/>
+<wire x1="-5.238278125" y1="-5.19" x2="-9" y2="-5.19" width="0.2" layer="16"/>
 </signal>
 <signal name="POWER_GND">
 <contactref element="U$1" pad="POWER_GND"/>
 <contactref element="J1" pad="5"/>
-<wire x1="1.95" y1="-1" x2="1.95" y2="-1.8867125" width="0.2" layer="1"/>
 <via x="-3.313965625" y="-7.186034375" extent="1-16" drill="0.35"/>
 <wire x1="-3.85793125" y1="-7.73" x2="-3.313965625" y2="-7.186034375" width="0.2" layer="16"/>
 <wire x1="-9" y1="-7.73" x2="-3.85793125" y2="-7.73" width="0.2" layer="16"/>
-<wire x1="-3.313965625" y1="-7.186034375" x2="-3.313965625" y2="-7.150678125" width="0.254" layer="1"/>
-<wire x1="-3.313965625" y1="-7.150678125" x2="-1.58164375" y2="-5.41835625" width="0.2" layer="1"/>
-<wire x1="-1.58164375" y1="-5.41835625" x2="-1.58164375" y2="-4.2331125" width="0.2" layer="1"/>
-<wire x1="-0.74853125" y1="-3.4" x2="-1.58164375" y2="-4.2331125" width="0.2" layer="1"/>
-<wire x1="1.95" y1="-1.8867125" x2="0.4367125" y2="-3.4" width="0.2" layer="1"/>
-<wire x1="0.4367125" y1="-3.4" x2="-0.74853125" y2="-3.4" width="0.2" layer="1"/>
+<wire x1="-3.313965625" y1="-7.150678125" x2="-3.313965625" y2="-7.186034375" width="0.254" layer="1"/>
+<wire x1="-1.58164375" y1="-5.41835625" x2="-3.313965625" y2="-7.150678125" width="0.2" layer="1"/>
+<wire x1="1.95" y1="-1" x2="1.7" y2="-1.25" width="0.2" layer="1"/>
+<wire x1="1.7" y1="-2.3106625" x2="1.7" y2="-1.25" width="0.2" layer="1"/>
+<wire x1="-1.58164375" y1="-5.41835625" x2="-1.58164375" y2="-4.874975" width="0.2" layer="1"/>
+<wire x1="1.25533125" y1="-2.75533125" x2="1.7" y2="-2.3106625" width="0.2" layer="1"/>
+<wire x1="-0.35666875" y1="-3.65" x2="-0.1343125" y2="-3.65" width="0.2" layer="1"/>
+<wire x1="0.76035625" y1="-2.75533125" x2="1.25533125" y2="-2.75533125" width="0.2" layer="1"/>
+<wire x1="-0.1343125" y1="-3.65" x2="0.76035625" y2="-2.75533125" width="0.2" layer="1"/>
+<wire x1="-1.58164375" y1="-4.874975" x2="-0.35666875" y2="-3.65" width="0.2" layer="1"/>
 </signal>
 <signal name="TX">
 <contactref element="U$1" pad="TX"/>
@@ -492,12 +504,10 @@ design rules under a new name.</description>
 <wire x1="-9" y1="-10.27" x2="-4.69" y2="-10.27" width="0.2" layer="16"/>
 <wire x1="-4.69" y1="-10.27" x2="-4.69" y2="-7.64" width="0.2" layer="1"/>
 <wire x1="-4.69" y1="-7.64" x2="-2.025" y2="-4.975" width="0.2" layer="1"/>
-<wire x1="0.75" y1="-2.2" x2="0.95" y2="-2" width="0.2" layer="1"/>
-<wire x1="0.6343125" y1="-2.2" x2="0.75" y2="-2.2" width="0.2" layer="1"/>
-<wire x1="-0.1656875" y1="-3" x2="0.6343125" y2="-2.2" width="0.2" layer="1"/>
-<wire x1="-0.91421875" y1="-3" x2="-0.1656875" y2="-3" width="0.2" layer="1"/>
-<wire x1="-2.025" y1="-4.975" x2="-2.025" y2="-4.11078125" width="0.2" layer="1"/>
-<wire x1="-2.025" y1="-4.11078125" x2="-0.91421875" y2="-3" width="0.2" layer="1"/>
+<wire x1="-2.025" y1="-4.11078125" x2="-2.025" y2="-4.975" width="0.2" layer="1"/>
+<wire x1="-0.3" y1="-3.25" x2="-1.16421875" y2="-3.25" width="0.2" layer="1"/>
+<wire x1="-1.16421875" y1="-3.25" x2="-2.025" y2="-4.11078125" width="0.2" layer="1"/>
+<wire x1="0.95" y1="-2" x2="-0.3" y2="-3.25" width="0.2" layer="1"/>
 </signal>
 <signal name="SHUTTER">
 <contactref element="U$1" pad="SHUTTER"/>
@@ -520,25 +530,28 @@ design rules under a new name.</description>
 <contactref element="J1" pad="9"/>
 <wire x1="-7.305" y1="-16.195" x2="-9" y2="-17.89" width="0.2" layer="1"/>
 <wire x1="-7.305" y1="-14.29705625" x2="-7.305" y2="-16.195" width="0.2" layer="1"/>
-<wire x1="-5.796" y1="-12.78805625" x2="-7.305" y2="-14.29705625" width="0.2" layer="1"/>
-<wire x1="-0.05" y1="0.75" x2="-0.05" y2="0.1367125" width="0.2" layer="1"/>
-<wire x1="-0.05" y1="0.1367125" x2="-5.796" y2="-5.6092875" width="0.2" layer="1"/>
-<wire x1="-5.796" y1="-5.6092875" x2="-5.796" y2="-12.78805625" width="0.2" layer="1"/>
+<wire x1="-7.305" y1="-14.29705625" x2="-5.796" y2="-12.78805625" width="0.2" layer="1"/>
+<wire x1="-2.340075" y1="-2.261865625" x2="-1.119628125" y2="-1.079734375" width="0.2" layer="1"/>
+<wire x1="-1.119628125" y1="-1.079734375" x2="-1.119628125" y2="-0.319628125" width="0.2" layer="1"/>
+<wire x1="-1.119628125" y1="-0.319628125" x2="-0.05" y2="0.75" width="0.2" layer="1"/>
+<wire x1="-5.796" y1="-5.717790625" x2="-2.340075" y2="-2.261865625" width="0.2" layer="1"/>
+<wire x1="-5.796" y1="-12.78805625" x2="-5.796" y2="-5.717790625" width="0.2" layer="1"/>
 </signal>
 <signal name="NC">
 <contactref element="U$1" pad="NC"/>
 <contactref element="J1" pad="10"/>
 <wire x1="-6.851" y1="-14.4851125" x2="-5.342" y2="-12.9761125" width="0.2" layer="1"/>
 <wire x1="-5.342" y1="-12.9761125" x2="-5.342" y2="-7.446778125" width="0.2" layer="1"/>
-<wire x1="-0.05" y1="-1.8867125" x2="-0.05" y2="-0.75" width="0.2" layer="1"/>
 <wire x1="-6.851" y1="-19" x2="-6.851" y2="-14.4851125" width="0.2" layer="1"/>
 <wire x1="-8.281" y1="-20.43" x2="-6.851" y2="-19" width="0.2" layer="1"/>
 <wire x1="-9" y1="-20.43" x2="-8.281" y2="-20.43" width="0.2" layer="1"/>
-<wire x1="-1.07990625" y1="-2.6" x2="-0.7632875" y2="-2.6" width="0.2" layer="1"/>
-<wire x1="-0.7632875" y1="-2.6" x2="-0.05" y2="-1.8867125" width="0.2" layer="1"/>
 <wire x1="-5.342" y1="-7.446778125" x2="-2.425" y2="-4.529778125" width="0.2" layer="1"/>
 <wire x1="-2.425" y1="-4.529778125" x2="-2.425" y2="-3.94509375" width="0.2" layer="1"/>
-<wire x1="-2.425" y1="-3.94509375" x2="-1.07990625" y2="-2.6" width="0.2" layer="1"/>
+<wire x1="-2.425" y1="-3.94509375" x2="-1.32990625" y2="-2.85" width="0.2" layer="1"/>
+<wire x1="-0.05" y1="-0.75" x2="-0.3" y2="-1" width="0.2" layer="1"/>
+<wire x1="-0.3" y1="-2.6843125" x2="-0.3" y2="-1" width="0.2" layer="1"/>
+<wire x1="-1.32990625" y1="-2.85" x2="-0.4656875" y2="-2.85" width="0.2" layer="1"/>
+<wire x1="-0.4656875" y1="-2.85" x2="-0.3" y2="-2.6843125" width="0.2" layer="1"/>
 </signal>
 <signal name="GND">
 <via x="-4" y="-20" extent="1-16" drill="0.35"/>
@@ -575,6 +588,11 @@ design rules under a new name.</description>
 <via x="-5" y="2.75" extent="1-16" drill="0.35"/>
 </signal>
 </signals>
+<errors>
+<approved hash="8,16,f9b2fac4bf9287f0"/>
+<approved hash="5,16,e8e5b1b2502f4c72"/>
+<approved hash="5,16,e3665c9708529cc2"/>
+</errors>
 </board>
 </drawing>
 <compatibility>
@@ -586,6 +604,16 @@ which will not be processed correctly with this version.
 Since Version 8.2, EAGLE supports online libraries. The ids
 of those online libraries will not be understood (or retained)
 with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports URNs for individual library
+assets (packages, symbols, and devices). The URNs of those assets
+will not be understood (or retained) with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports the association of 3D packages
+with devices in libraries, schematics, and board files. Those 3D
+packages will not be understood (or retained) with this version.
 </note>
 </compatibility>
 </eagle>
