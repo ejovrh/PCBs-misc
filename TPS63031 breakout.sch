@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.3.2">
+<eagle version="8.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -246,7 +246,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="TPS63001DRCR" prefix="IC">
+<deviceset name="TPS63031DSKT" prefix="IC">
 <gates>
 <gate name="A" symbol="TPS63031" x="0" y="0"/>
 </gates>
@@ -7341,7 +7341,7 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 </class>
 </classes>
 <parts>
-<part name="IC2" library="TPS63031 - Buck Boost Voltage Regulator" deviceset="TPS63001DRCR" device=""/>
+<part name="IC2" library="TPS63031 - Buck Boost Voltage Regulator" deviceset="TPS63031DSKT" device=""/>
 <part name="L1" library="DJNR3015-1R5 Inductor" deviceset="DJNR3015-1R5" device="" value="DJNR3015-2R2"/>
 <part name="C3" library="rcl" deviceset="C-EU" device="C0805" value="22µF"/>
 <part name="C1" library="rcl" deviceset="C-EU" device="C0805" value="10µF"/>
