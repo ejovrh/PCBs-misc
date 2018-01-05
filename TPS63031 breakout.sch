@@ -7358,7 +7358,7 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 </plain>
 <instances>
 <instance part="IC2" gate="A" x="68.58" y="43.18"/>
-<instance part="L1" gate="G$1" x="68.58" y="78.74"/>
+<instance part="L1" gate="G$1" x="68.58" y="76.2"/>
 <instance part="C3" gate="G$1" x="104.14" y="48.26" rot="R180"/>
 <instance part="C1" gate="G$1" x="25.4" y="48.26" rot="R180"/>
 <instance part="C2" gate="G$1" x="33.02" y="45.72" rot="R270"/>
@@ -7375,16 +7375,16 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <segment>
 <pinref part="L1" gate="G$1" pin="L1"/>
 <pinref part="IC2" gate="A" pin="L1"/>
-<wire x1="53.34" y1="78.74" x2="48.26" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="78.74" x2="48.26" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="76.2" x2="48.26" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="76.2" x2="48.26" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="L2" class="0">
 <segment>
 <pinref part="L1" gate="G$1" pin="L2"/>
 <pinref part="IC2" gate="A" pin="L2"/>
-<wire x1="83.82" y1="78.74" x2="88.9" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="78.74" x2="88.9" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="76.2" x2="88.9" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="76.2" x2="88.9" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VIN" class="0">
