@@ -4484,9 +4484,9 @@ Source: AVX .. aphvc.pdf</description>
 <sheets>
 <sheet>
 <plain>
-<wire x1="-5.08" y1="91.44" x2="147.32" y2="91.44" width="0.1524" layer="90"/>
-<wire x1="-5.08" y1="91.44" x2="-5.08" y2="10.16" width="0.1524" layer="90"/>
-<wire x1="-5.08" y1="10.16" x2="147.32" y2="10.16" width="0.1524" layer="90"/>
+<wire x1="10.16" y1="91.44" x2="147.32" y2="91.44" width="0.1524" layer="90"/>
+<wire x1="10.16" y1="91.44" x2="10.16" y2="10.16" width="0.1524" layer="90"/>
+<wire x1="10.16" y1="10.16" x2="147.32" y2="10.16" width="0.1524" layer="90"/>
 <wire x1="147.32" y1="91.44" x2="147.32" y2="10.16" width="0.1524" layer="90"/>
 <text x="20.32" y="86.36" size="1.778" layer="90">ideal diode</text>
 </plain>

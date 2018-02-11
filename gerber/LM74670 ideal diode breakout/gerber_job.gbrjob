@@ -1,0 +1,11 @@
+G04 Gerber job file.*
+%TF.FileFunction,JobInfo*%
+%TF.GenerationSoftware,Autodesk,EAGLE,8.6.1*%
+%TF.CreationDate,2018-02-11T14:24:17Z*%
+%TF.Part,Single*%
+%MOMM*%
+%TJ.B_Owner,Hrvoje Ivanic <hrvoje.ivanic@gmx.net>*%
+%TJ.B_ID,LM74670 ideal diode breakout*%
+%TJ.B_LayerNum,2*%
+%TJ.B_Thickness,1.570000*%
+M02*
