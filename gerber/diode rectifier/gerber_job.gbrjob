@@ -1,0 +1,11 @@
+G04 Gerber job file.*
+%TF.FileFunction,JobInfo*%
+%TF.GenerationSoftware,Autodesk,EAGLE,8.6.1*%
+%TF.CreationDate,2018-02-11T16:27:46Z*%
+%TF.Part,Single*%
+%MOMM*%
+%TJ.B_Owner,Hrvoje Ivanic <hrvoje.ivanic@gmx.net>*%
+%TJ.B_ID,diode rectifier*%
+%TJ.B_LayerNum,2*%
+%TJ.B_Thickness,1.570000*%
+M02*
