@@ -1853,7 +1853,7 @@ design rules under a new name.</description>
 <contactref element="IC2" pad="VCAPL"/>
 <wire x1="12.3825" y1="30.4825" x2="12.3825" y2="29.2175" width="0.45" layer="16"/>
 <wire x1="12.3825" y1="29.2175" x2="12.9" y2="28.7" width="0.45" layer="16"/>
-<via x="12.9" y="28.7" extent="1-16" drill="0.35"/>
+<via x="12.9" y="28.7" extent="1-16" drill="0.4"/>
 <wire x1="13.9525" y1="29.2025" x2="13.4025" y2="29.2025" width="0.45" layer="1"/>
 <wire x1="13.4025" y1="29.2025" x2="12.9" y2="28.7" width="0.45" layer="1"/>
 </signal>
