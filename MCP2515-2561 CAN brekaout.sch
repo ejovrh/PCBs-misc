@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.0.0">
+<eagle version="9.0.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -9136,6 +9136,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="SPLIT" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B2,54" package3d_urn="urn:adsk.eagle:package:27948/1"/>
 <part name="IC3" library="PESDxS2UT" deviceset="PESDXS2UT" device="" value="PESD5V2S2UT"/>
 <part name="JP1" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X8" device="" package3d_urn="urn:adsk.eagle:package:22409/2" value="header"/>
+<part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547/1" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -9174,6 +9175,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="SPLIT" gate="G$1" x="322.58" y="10.16" rot="R180"/>
 <instance part="IC3" gate="G$1" x="228.6" y="-43.18" rot="R180"/>
 <instance part="JP1" gate="A" x="177.8" y="-35.56" rot="R180"/>
+<instance part="R4" gate="G$1" x="241.3" y="7.62" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -9318,6 +9320,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="180.34" y1="-43.18" x2="190.5" y2="-43.18" width="0.1524" layer="91"/>
 <label x="190.5" y="-43.18" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="R4" gate="G$1" pin="2"/>
+<wire x1="241.3" y1="2.54" x2="241.3" y2="0" width="0.1524" layer="91"/>
+<label x="241.3" y="0" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="OSC1" class="0">
 <segment>
@@ -9427,6 +9434,14 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="SPLIT" gate="G$1" pin="TP"/>
 <wire x1="322.58" y1="22.86" x2="322.58" y2="12.7" width="0.1524" layer="91"/>
 <label x="322.58" y="15.24" size="1.778" layer="95" rot="R180"/>
+</segment>
+</net>
+<net name="RESET" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="!RESET!"/>
+<wire x1="236.22" y1="12.7" x2="241.3" y2="12.7" width="0.1524" layer="91"/>
+<label x="241.3" y="12.7" size="1.778" layer="95"/>
+<pinref part="R4" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>
