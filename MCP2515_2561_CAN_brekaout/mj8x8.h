@@ -15,14 +15,24 @@
 #define ARGUMENT data[1]
 
 // command byte structure
-#define FOO3 7 // acknowledge bit: 1 ack ?
-#define FOO2 6 //
-#define FOO1 5 //
-#define BUTTON 4 //
-#define SIGNAL_LED 3 //
-#define REAR_LIGHT 2 // expects 1 byte argument: off (0x00), on (0xff), PWM intensity (0x01 - 0xfe)
-#define FRONT_LIGHT 1 // expects 1 byte argument: off (0x00), on (0xff), PWM intensity (0x01 - 0xfe)
-#define BRAKE_LIGHT 0 // expects 1 byte argument: off (0x00), on (0xff), PWM intensity (0x01 - 0xfe)
+#define CMND_UTIL_LED 0x10 // command for utility LED operation (color, on, off, blink)
+#define CMND_POS_LED 0x40 // command for positional LED operation (front, rear, brake light on/off, fade)
+#define CMND_FW_FLASH 0x70 // command for flashing firmware
+#define MSG_TIME_SYNC 0x80 // time synchronization message
+#define MSG_BUTTON_EVENT 0x90 // message for button events
+#define MSG_MEASUREMENT_DATA 0xD0 // message containing various measurements
+#define MSG_BUS 0xF0 // CAN bus related control messages
+
+#define LED_FRONT 0x00 // ID for front light
+#define LED_REAR 0x02 // ID for rear light
+#define LED_BREAK 0x03 // ID for brake light
+
+//bit fields for command byte
+//	B7:B5 are command nibbles and not broken down further
+#define B3 3
+#define B2 2
+#define B1 1
+#define B0 0
 
 
 #endif /* MJ8X8_H_ */
