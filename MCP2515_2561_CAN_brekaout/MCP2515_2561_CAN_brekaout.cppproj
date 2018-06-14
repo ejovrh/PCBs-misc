@@ -128,8 +128,8 @@
     </ToolchainSettings>
     <VMSETTING_IncludePaths>../../../MCP2515_2561_CAN_brekaout;C:/Users/hivanic/Documents/Arduino/libraries/CAN-BUS_Shield;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/SPI/src;C:/Users/hivanic/Documents/Arduino/libraries/CAN_BUS_Shield;C:/Program Files (x86)/Arduino/libraries;C:/Users/hivanic/Documents/Arduino/libraries;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/variants/standard;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;</VMSETTING_IncludePaths>
     <VisualMicroSettings>
-      <VisualMicroSettings xmlns="">
-        <arduino.upload.port>COM12</arduino.upload.port>
+      <VisualMicroSettings>
+        <arduino.upload.port>COM28</arduino.upload.port>
       </VisualMicroSettings>
     </VisualMicroSettings>
   </PropertyGroup>
@@ -219,8 +219,8 @@
     </ToolchainSettings>
     <VMSETTING_IncludePaths>../../../MCP2515_2561_CAN_brekaout;C:/Users/hivanic/Documents/Arduino/libraries/CAN-BUS_Shield;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/SPI/src;C:/Users/hivanic/Documents/Arduino/libraries/CAN_BUS_Shield;C:/Program Files (x86)/Arduino/libraries;C:/Users/hivanic/Documents/Arduino/libraries;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/variants/standard;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;</VMSETTING_IncludePaths>
     <VisualMicroSettings>
-      <VisualMicroSettings xmlns="">
-        <arduino.upload.port>COM12</arduino.upload.port>
+      <VisualMicroSettings>
+        <arduino.upload.port>COM28</arduino.upload.port>
       </VisualMicroSettings>
     </VisualMicroSettings>
   </PropertyGroup>

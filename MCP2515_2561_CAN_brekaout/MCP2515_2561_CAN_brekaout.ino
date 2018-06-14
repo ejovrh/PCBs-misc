@@ -86,27 +86,18 @@ void loop()
 			Serial.println("center key press");
 			key_center_pressed = 1;
 
+			key_buf[0] = 0x1A; // blink test command byte
+			CAN.sendMsgBuf( 0x02, 0, 0, key_buf, true); // blink test CAN message
 
-			key_buf[0] = 0x30; // blink test
-			key_buf[1] = 0x02;
-			CAN.sendMsgBuf( 0x02, 0, 2, key_buf, true);
 
-			//// brake light test
-			key_buf[0] = 0x00;
-			key_buf[0] = _BV(BRAKE_LIGHT);
-			key_buf[1] = 0x80; // on
-			CAN.sendMsgBuf( 0x02, 0, 2, key_buf, true);
 		}
 
 		if (digitalRead(KEY_CENTER) && key_center_pressed)
 		{
 			Serial.println("release");
 			key_center_pressed = 0;
-			
-      key_buf[0] = 0x00;
-      key_buf[0] = _BV(BRAKE_LIGHT);
-      key_buf[1] = 0x00; // off
-      CAN.sendMsgBuf( 0x02, 0, 2, key_buf, true);
+
+
 
 
 
@@ -137,36 +128,47 @@ void taskCanRecv()
 
               if (buf[0] & ( _BV(BUTTON) ) && buf[1] > 0x00 )
               {
-                Serial.print("lamp on\n cmnd - \t");
+                Serial.print("lamp on\n");
+
+								// FIXME: to both lamps the last hex argument gets passed; the one before (front light command) gets overridden
                 buf[0] = 0x00;
-								buf[0] = _BV(FRONT_LIGHT);
-                //buf[1] = 0x40; // keep off
-								Serial.print(buf[0], HEX);Serial.print(" - arg - ");Serial.println(buf[1], HEX);
+								buf[0] = _BV(FRONT_LIGHT); // command
+                buf[1] = 0x20; // argument
+								Serial.print("cmd - \t");Serial.print(buf[0], HEX);Serial.print(" - arg - ");Serial.println(buf[1], HEX);
                 CAN.sendMsgBuf( 0x02, 0, 2, buf, true);
+								buf[1] = 0;
 
                 buf[0] = 0x00;
-                buf[0] = _BV(REAR_LIGHT);
-                buf[1] = 0xff;
-								Serial.print(buf[0], HEX);Serial.print(" - arg - ");Serial.println(buf[1], HEX);
+								buf[0] = _BV(REAR_LIGHT); // command
+                buf[1] = 0xff; // argument
+                Serial.print("cmd - \t");Serial.print(buf[0], HEX);Serial.print(" - arg - ");Serial.println(buf[1], HEX);
                 CAN.sendMsgBuf( 0x02, 0, 2, buf, true);
+								buf[1] = 0;
 
 
               }
 
 							if (buf[0] & ( _BV(BUTTON) ) && buf[1] == 0x00 )
 							{
-                Serial.print("lamp off\n cmnd - \t");
+                Serial.print("lamp off\n");
+
+
+
+								// FIXME: to both lamps the last hex argument gets passed; the one before (front light command) gets overridden
                 buf[0] = 0x00;
-                buf[0] = _BV(FRONT_LIGHT);
-                buf[1] = 0x00;
-								Serial.print(buf[0], HEX);Serial.print(" - arg - ");Serial.println(buf[1], HEX);
-                CAN.sendMsgBuf( 0x02, 0, 2, buf, true);
+								buf[0] = _BV(REAR_LIGHT); // command
+								buf[1] = 0x10; // argument
+								Serial.print("cmd - \t");Serial.print(buf[0], HEX);Serial.print(" - arg - ");Serial.println(buf[1], HEX);
+								CAN.sendMsgBuf( 0x02, 0, 2, buf, true);
+								buf[1] = 0;
 
                 buf[0] = 0x00;
-                buf[0] = _BV(REAR_LIGHT);
-                buf[1] = 0x00;
-								Serial.print(buf[0], HEX);Serial.print(" - arg - ");Serial.println(buf[1], HEX);
+								buf[0] = _BV(FRONT_LIGHT); // command
+                buf[1] = 0x3; // argument
+								Serial.print("cmd - \t");Serial.print(buf[0], HEX);Serial.print(" - arg - ");Serial.println(buf[1], HEX);
                 CAN.sendMsgBuf( 0x02, 0, 2, buf, true);
+								buf[1] = 0;
+
 							}
 
         Serial.println();
