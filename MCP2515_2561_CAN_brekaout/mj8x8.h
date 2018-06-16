@@ -1,5 +1,8 @@
-#ifndef MJ808_H_
-#define MJ808_H_
+#ifndef MJ8x8_H_
+#define MJ8x8_H_
+
+// what device to compile for?
+#define MJ818_
 
 // OCR defines
 #define OCR_FRONT_LIGHT OCR1A // Output Compare Register for PWM of front light
@@ -47,6 +50,7 @@
 #define OCR_MAX_REAR_LIGHT 0xFF // max. OCR0A count limit for rear light PWM - the sky is the limit
 #define OCR_MAX_BRAKE_LIGHT 0x80 // max. OCR1A count limit for brake light PWM
 
+#define LED_OFF 0x00 // off value for any OCR
 #define BLINK_DELAY 125
 
 #define CAN_IN can_msg_incoming
@@ -56,18 +60,50 @@
 
 // command byte structure
 #define CMND_UTIL_LED 0x10 // command for utility LED operation (color, on, off, blink)
+	#define UTIL_LED_GREEN_OFF 0x00 // utility LED - off
+	#define UTIL_LED_GREEN_ON 0x17 // utility LED - on
+	#define UTIL_LED_GREEN_BLINK_1X 0x11 // utility LED - blink
+	#define UTIL_LED_GREEN_BLINK_2X 0x12 // utility LED - blink
+	#define UTIL_LED_GREEN_BLINK_3X 0x13 // utility LED - blink
+	#define UTIL_LED_GREEN_BLINK_4X 0x14 // utility LED - blink
+	#define UTIL_LED_GREEN_BLINK_5X 0x15 // utility LED - blink
+	#define UTIL_LED_GREEN_BLINK_6X 0x16 // utility LED - blink
+	#define UTIL_LED_RED_OFF 0x18 // utility LED - off
+	#define UTIL_LED_RED_ON 0x1F // utility LED - on
+	#define UTIL_LED_RED_BLINK_1X 0x19 // utility LED - blink
+	#define UTIL_LED_RED_BLINK_2X 0x1A // utility LED - blink
+	#define UTIL_LED_RED_BLINK_3X 0x1B // utility LED - blink
+	#define UTIL_LED_RED_BLINK_4X 0x1C // utility LED - blink
+	#define UTIL_LED_RED_BLINK_5X 0x1D // utility LED - blink
+	#define UTIL_LED_RED_BLINK_6X 0x1E // utility LED - blink
 #define CMND_DEVICE 0x40 // command for device (00 - logic unit, 01 - power sources, 02 - lights, 03 sensors)
 	#define DEV_LU 0x00 // logic unit device
 	#define DEV_PWR_SRC 0x04 // power source device
 	#define DEV_LIGHT 0x08 // positional light device
-			#define FRONT_LIGHT 0x00 // front positional light (mj808)
-			#define TO_BE_DEFINED_LIGHT 0x01 // to be defined
+			#define FRONT_LIGHT 0x00 // front positional light (mj808) - low beam
+			#define FRONT_LIGHT_HIGH 0x01 // front positional light (mj808) - high beam
 			#define REAR_LIGHT 0x02 // rear positional light (mj818)
 			#define BRAKE_LIGHT 0x03 // brake light (mj818)
 	#define DEV_SENSOR 0x0C // sensor device
 #define CMND_FW_FLASH 0x70 // command for flashing firmware
 #define MSG_TIME_SYNC 0x80 // time synchronization message
 #define MSG_BUTTON_EVENT 0x90 // message for button events
+	#define BUTTON0_OFF 0x00 // button n off
+	#define BUTTON0_ON 0x01 // button n on
+	#define BUTTON1_OFF 0x02
+	#define BUTTON1_ON 0x03
+	#define BUTTON2_OFF 0x04
+	#define BUTTON2_ON 0x05
+	#define BUTTON3_OFF 0x06
+	#define BUTTON3_ON 0x07
+	#define BUTTON4_OFF 0x08
+	#define BUTTON4_ON 0x09
+	#define BUTTON5_OFF 0x0A
+	#define BUTTON5_ON 0x0B
+	#define BUTTON6_OFF 0x0C
+	#define BUTTON6_ON 0x0D
+	#define BUTTON7_OFF 0x0E
+	#define BUTTON7_ON 0x0F
 #define MSG_MEASUREMENT_DATA 0xD0 // message containing various measurements
 #define MSG_BUS 0xF0 // CAN bus related control messages
 
@@ -82,23 +118,11 @@
 #define B1 1
 #define B0 0
 
-// defines for utility LED operation
-#define UTIL_LED_GREEN_OFF 0x00
-#define UTIL_LED_GREEN_ON 0x17
-#define UTIL_LED_GREEN_BLINK_1X 0x11
-#define UTIL_LED_GREEN_BLINK_2X 0x12
-#define UTIL_LED_GREEN_BLINK_3X 0x13
-#define UTIL_LED_GREEN_BLINK_4X 0x14
-#define UTIL_LED_GREEN_BLINK_5X 0x15
-#define UTIL_LED_GREEN_BLINK_6X 0x16
-#define UTIL_LED_RED_OFF 0x18
-#define UTIL_LED_RED_ON 0x1F
-#define UTIL_LED_RED_BLINK_1X 0x19
-#define UTIL_LED_RED_BLINK_2X 0x1A
-#define UTIL_LED_RED_BLINK_3X 0x1B
-#define UTIL_LED_RED_BLINK_4X 0x1C
-#define UTIL_LED_RED_BLINK_5X 0x1D
-#define UTIL_LED_RED_BLINK_6X 0x1E
+#define MJ818_SIDH 0x12;
+#define MJ818_SIDL 0x12;
+#define MJ808_SIDH 0x12;
+#define MJ808_SIDL 0x12;
+#define LU_SIDH 0x12;
+#define LU_SIDL 0x12;
 
-
-#endif /* MJ808_H_ */
+#endif /* MJ8x8_H_ */
