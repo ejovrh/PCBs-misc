@@ -1,6 +1,10 @@
 #ifndef MJ8x8_H_
 #define MJ8x8_H_
 
+#include <stdint-gcc.h>
+
+#include "mcp_can.h"
+
 // what device to compile for?
 #define MJ818_
 
@@ -60,7 +64,9 @@
 
 // command byte structure
 #define CMND_UTIL_LED 0x10 // command for utility LED operation (color, on, off, blink)
-	#define UTIL_LED_GREEN_OFF 0x00 // utility LED - off
+	#define GREEN 0x00
+	#define RED 0x08
+	#define UTIL_LED_GREEN_OFF 0x10 // utility LED - off
 	#define UTIL_LED_GREEN_ON 0x17 // utility LED - on
 	#define UTIL_LED_GREEN_BLINK_1X 0x11 // utility LED - blink
 	#define UTIL_LED_GREEN_BLINK_2X 0x12 // utility LED - blink
@@ -124,5 +130,59 @@
 #define MJ808_SIDL 0x12;
 #define LU_SIDH 0x12;
 #define LU_SIDL 0x12;
+
+class mj8x8
+{
+	public:
+		virtual void shine(uint8_t ocr) = 0;
+
+	//protected:
+			//MCP_CAN can;
+			//uint8_t sidh;
+			//uint8_t sidl;
+			//uint8_t dlc;
+			//uint8_t data[8];
+};
+
+class mj808 : public mj8x8
+{
+	public:
+		mj808();
+		mj808(MCP_CAN in_can);
+
+		void shine(uint8_t ocr) final;
+		void high_beam(uint8_t ocr); // brightens up the front lamp - aka high beam light
+		void util_led_blink(uint8_t color, uint8_t count); // lets util LED blink up to 6 times either red or green
+		void util_led_off(uint8_t color); // turns either green or red util. LED off
+		void util_led_on(uint8_t color); // turns either green or red util. LED on
+
+	private:
+			MCP_CAN _can;
+			uint8_t sidh;
+			uint8_t sidl;
+			uint8_t _dlc;
+			uint8_t _data[8];
+			uint8_t _ocr_current;
+			uint8_t _ocr_requested;
+};
+
+
+
+class mj818 : public mj8x8
+{
+	public:
+		mj818();
+		mj818(MCP_CAN in_can);
+
+		void shine(uint8_t ocr) final;
+		void brake_light(uint8_t ocr);
+
+	private:
+			MCP_CAN _can;
+			uint8_t sidh;
+			uint8_t sidl;
+			uint8_t _dlc;
+			uint8_t _data[8];
+};
 
 #endif /* MJ8x8_H_ */

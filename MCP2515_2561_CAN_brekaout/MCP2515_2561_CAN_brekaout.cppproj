@@ -18,8 +18,7 @@
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
-    <OverrideVtorValue>
-    </OverrideVtorValue>
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
     <eraseonlaunchrule>0</eraseonlaunchrule>
     <ProgFlashFromRam>true</ProgFlashFromRam>
     <RamSnippetAddress>0x20000000</RamSnippetAddress>
@@ -118,15 +117,14 @@
       <Value>C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
-  <avrgcccpp.compiler.optimization.level>Optimize (-O1)</avrgcccpp.compiler.optimization.level>
+  <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
   <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
   <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
   <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
   <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
 </AvrGccCpp>
     </ToolchainSettings>
-    <VMSETTING_IncludePaths>../../../MCP2515_2561_CAN_brekaout;C:/Users/hivanic/Documents/Arduino/libraries/CAN-BUS_Shield;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/SPI/src;C:/Users/hivanic/Documents/Arduino/libraries/CAN_BUS_Shield;C:/Program Files (x86)/Arduino/libraries;C:/Users/hivanic/Documents/Arduino/libraries;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/variants/standard;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;</VMSETTING_IncludePaths>
+    <VMSETTING_IncludePaths>../../../MCP2515_2561_CAN_brekaout;C:/Users/hivanic/Documents/Arduino/libraries/CAN-BUS_Shield;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/SPI/src;C:/Users/hivanic/Documents/Arduino/libraries/CAN_BUS_Shield;C:/Program Files (x86)/Arduino/libraries;C:/Users/hivanic/Documents/Arduino/libraries;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/variants/standard;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;C:/Users/hivanic/AppData/Local/Temp/VMBuilds/MCP2515_2561_CAN_brekaout/uno/Debug;</VMSETTING_IncludePaths>
     <VisualMicroSettings>
       <VisualMicroSettings>
         <arduino.upload.port>COM12</arduino.upload.port>
@@ -209,15 +207,14 @@
       <Value>C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
-  <avrgcccpp.compiler.optimization.level>Optimize (-O1)</avrgcccpp.compiler.optimization.level>
+  <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
   <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
   <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcccpp.compiler.optimization.DebugLevel>Default (-g2)</avrgcccpp.compiler.optimization.DebugLevel>
   <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
   <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
 </AvrGccCpp>
     </ToolchainSettings>
-    <VMSETTING_IncludePaths>../../../MCP2515_2561_CAN_brekaout;C:/Users/hivanic/Documents/Arduino/libraries/CAN-BUS_Shield;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/SPI/src;C:/Users/hivanic/Documents/Arduino/libraries/CAN_BUS_Shield;C:/Program Files (x86)/Arduino/libraries;C:/Users/hivanic/Documents/Arduino/libraries;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/variants/standard;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;</VMSETTING_IncludePaths>
+    <VMSETTING_IncludePaths>../../../MCP2515_2561_CAN_brekaout;C:/Users/hivanic/Documents/Arduino/libraries/CAN-BUS_Shield;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries/SPI/src;C:/Users/hivanic/Documents/Arduino/libraries/CAN_BUS_Shield;C:/Program Files (x86)/Arduino/libraries;C:/Users/hivanic/Documents/Arduino/libraries;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/libraries;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/hardware/avr/1.6.20/variants/standard;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/avr;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.8.1/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.2/include;C:/Users/hivanic/AppData/Local/arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/lib/gcc/avr/4.9.3/include;C:/Users/hivanic/AppData/Local/Temp/VMBuilds/MCP2515_2561_CAN_brekaout/uno/Debug;</VMSETTING_IncludePaths>
     <VisualMicroSettings>
       <VisualMicroSettings>
         <arduino.upload.port>COM12</arduino.upload.port>
@@ -233,6 +230,9 @@
     <Folder Include="__vm\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="mj8x8.cpp">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="mj8x8.h">
       <SubType>compile</SubType>
     </Compile>

@@ -12,7 +12,9 @@
 #define MCP2551_SLEEP_PIN 9
 #define SPI_CS_PIN 10
 
-MCP_CAN CAN(SPI_CS_PIN);                                    // Set CS pin
+MCP_CAN CAN(SPI_CS_PIN);
+MCP_CAN *can = &CAN;
+
 
 #define PID_ENGIN_PRM       0x0C
 #define PID_VEHICLE_SPEED   0x0D
@@ -31,19 +33,22 @@ int key_right_pressed = 0;
 
 unsigned char key_buf[8];
 
+mj808 front(*can);
+mj818 rear(*can);
 
 void set_mask_filt()
 {
-    CAN.init_Mask(0, 0, 0x00);
-    CAN.init_Mask(1, 0, 0x00);
+	can->init_Mask(0, 0, 0x00);
+  can->init_Mask(0, 0, 0x00);
+  can->init_Mask(1, 0, 0x00);
 
-    CAN.init_Filt(0, 0, 0x00);
-    CAN.init_Filt(1, 0, 0x00);
+  can->init_Filt(0, 0, 0x00);
+  can->init_Filt(1, 0, 0x00);
 
-    CAN.init_Filt(2, 0, 0x00);
-    CAN.init_Filt(3, 0, 0x00);
-    CAN.init_Filt(4, 0, 0x00);
-    CAN.init_Filt(5, 0, 0x00);
+  can->init_Filt(2, 0, 0x00);
+  can->init_Filt(3, 0, 0x00);
+  can->init_Filt(4, 0, 0x00);
+  can->init_Filt(5, 0, 0x00);
 }
 
 void sendPid(unsigned char __pid)
@@ -51,11 +56,12 @@ void sendPid(unsigned char __pid)
     unsigned char tmp[8] = {0x02, 0x01, __pid, 0, 0, 0, 0, 0};
     Serial.print("SEND PID: 0x");
     Serial.println(__pid, HEX);
-    CAN.sendMsgBuf(CAN_ID_PID, 0, 8, tmp);
+    can->sendMsgBuf(CAN_ID_PID, 0, 8, tmp);
 }
 
 void setup()
 {
+
     Serial.begin(9600);
 		pinMode(11, OUTPUT);
 		digitalWrite(11, LOW);
@@ -79,7 +85,7 @@ void setup()
 		digitalWrite(KEY_RIGHT, LOW);
 
 
-    while (CAN_OK != CAN.begin(CAN_500KBPS, MCP_8MHz))    // init can bus : baudrate = 500k
+    while (CAN_OK != can->begin(CAN_500KBPS, MCP_8MHz))    // init can bus : baudrate = 500k
     {
         Serial.println("CAN BUS Shield init fail");
         Serial.println(" Init CAN BUS Shield again");
@@ -107,28 +113,13 @@ void loop()
 			Serial.println("center key press");
 			key_center_pressed = 1;
 
-			//key_buf[0] = UTIL_LED_GREEN_BLINK_2X; // CMND_UTIL_LED
-			//CAN.sendMsgBuf( 0x02, 0, 1, key_buf, true); // blink test CAN message
-
-			//key_buf[0] = (CMND_DEVICE | DEV_LIGHT | FRONT_LIGHT_HIGH); // CMND_DEVICE - DEV_LIGHT - front light
-			key_buf[0] = (CMND_DEVICE | DEV_LIGHT | BRAKE_LIGHT); // CMND_DEVICE - DEV_LIGHT - front light
-			key_buf[1] = 0x80; // set intensity to 0x90 (0x10 past max - red will blink 2x)
-			CAN.sendMsgBuf( 0x02, 0, 2, key_buf, true); // device test command byte
+			front.util_led_blink(GREEN, 8);
 		}
 
 		if (digitalRead(KEY_CENTER) && key_center_pressed)
 		{
 			Serial.println("center key release");
 			key_center_pressed = 0;
-
-			//key_buf[0] = UTIL_LED_RED_BLINK_2X; // CMND_UTIL_LED
-			//CAN.sendMsgBuf( 0x02, 0, 1, key_buf, true); // blink test CAN message
-
-			//key_buf[0] = (CMND_DEVICE | DEV_LIGHT | FRONT_LIGHT_HIGH); // CMND_DEVICE - DEV_LIGHT - front light
-			key_buf[0] = (CMND_DEVICE | DEV_LIGHT | BRAKE_LIGHT); // CMND_DEVICE - DEV_LIGHT - front light
-			key_buf[1] = 0x00; // set intensity to 0x00 (off)
-			CAN.sendMsgBuf( 0x02, 0, 2, key_buf, true); // device test command byte
-
 		}
 
 
@@ -138,12 +129,14 @@ void loop()
 		{
 			Serial.println("down key press");
 			key_down_pressed = 1;
+			front.high_beam(0x80);
 		}
 
 		if (digitalRead(KEY_DOWN) && key_down_pressed)
 		{
 			Serial.println("down key release");
 			key_down_pressed = 0;
+			front.high_beam(0x00);
 		}
 
 
@@ -153,12 +146,16 @@ void loop()
 		{
 			Serial.println("up key press");
 			key_up_pressed = 1;
+
+			rear.brake_light(0x80);
 		}
 
 		if (digitalRead(KEY_UP) && key_up_pressed)
 		{
 			Serial.println("up key release");
 			key_up_pressed = 0;
+
+			rear.brake_light(0x00);
 		}
 
 
@@ -168,27 +165,28 @@ void loop()
 		{
 			Serial.println("left key press");
 			key_left_pressed = 1;
+			front.util_led_on(GREEN);
 		}
 
 		if (digitalRead(KEY_LEFT) && key_left_pressed)
 		{
 			Serial.println("left key release");
 			key_left_pressed = 0;
+			front.util_led_off(GREEN);
 		}
-
-
-
 
 		if (!digitalRead(KEY_RIGHT) && !key_right_pressed)
 		{
 			Serial.println("right key press");
 			key_right_pressed = 1;
+			front.util_led_on(RED);
 		}
 
 		if (digitalRead(KEY_RIGHT) && key_right_pressed)
 		{
 			Serial.println("right key release");
 			key_right_pressed = 0;
+			front.util_led_off(RED);
 		}
 
 }
@@ -197,15 +195,14 @@ void taskCanRecv()
 {
     unsigned char len = 0;
     unsigned char buf[8];
-    unsigned char data[8];
 
-    if(CAN_MSGAVAIL == CAN.checkReceive())                   // check if get data
+    if(CAN_MSGAVAIL == can->checkReceive())                   // check if get data
     {
-        CAN.readMsgBuf(&len, buf);    // read data,  len: data length, buf: data buf
+        can->readMsgBuf(&len, buf);    // read data,  len: data length, buf: data buf
 
         Serial.println("\r\n------------------------------------------------------------------");
         Serial.print("RAW start - Get Data From id: ");
-        Serial.print(CAN.getCanId(), HEX);
+        Serial.print(can->getCanId(), HEX);
 				Serial.print(" - ");
         for(int i = 0; i<len; i++)    // print the data
         {
@@ -221,32 +218,16 @@ void taskCanRecv()
 							if (buf[0] == (MSG_BUTTON_EVENT | BUTTON0_OFF) )
 							{
 								Serial.print("lamp off\n");
-
-								buf[0] = (CMND_DEVICE | DEV_LIGHT | FRONT_LIGHT); // command
-								buf[1] = LED_OFF; // argument
-								Serial.print("cmd - \t");Serial.print(buf[0], HEX);Serial.print(" - arg - ");Serial.println(buf[1], HEX);
-								CAN.sendMsgBuf( 0x02, 0, 2, buf, true);
-
-								buf[0] = (CMND_DEVICE | DEV_LIGHT | REAR_LIGHT); // command
-								buf[1] = LED_OFF; // argument
-								Serial.print("cmd - \t");Serial.print(buf[0], HEX);Serial.print(" - arg - ");Serial.println(buf[1], HEX);
-								CAN.sendMsgBuf( 0x02, 0, 2, buf, true);
+								front.shine(0x00);
+								rear.shine(0x00);
 								return;
 							}
 
               if (buf[0] == (MSG_BUTTON_EVENT | BUTTON0_ON) ) // mj808 button
               {
                 Serial.print("lamp on\n");
-
-								buf[0] = (CMND_DEVICE | DEV_LIGHT | FRONT_LIGHT); // command
-                buf[1] = 0x40; // argument
-								Serial.print("cmd - \t");Serial.print(buf[0], HEX);Serial.print(" - arg - ");Serial.println(buf[1], HEX);
-                CAN.sendMsgBuf( 0x02, 0, 2, buf, true);
-
-								buf[0] = (CMND_DEVICE | DEV_LIGHT | REAR_LIGHT); // command
-                buf[1] = 0x01; //
-                Serial.print("cmd - \t");Serial.print(buf[0], HEX);Serial.print(" - arg - ");Serial.println(buf[1], HEX);
-                CAN.sendMsgBuf( 0x02, 0, 2, buf, true);
+								front.shine(0x40);
+								rear.shine(0xFF);
 								return;
               }
 
