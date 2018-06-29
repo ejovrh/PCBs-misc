@@ -1,13 +1,33 @@
 #include "mj8x8.h"
 
-mj818::mj818(void)
+ SID::SID(uint8_t h, uint8_t l)
+ {
+	 this->h = h;
+	 this->l = l;
+ }
+
+ SID::SID()
 {
-	;
+
+}
+
+uint16_t SID::get(void)
+{
+	uint16_t retval = (h << 8);
+	retval |= l;
+	return (retval );
 }
 
  mj818::mj818(MCP_CAN in_can)
 {
+	// compose the outbound SID
+	this->_sid = SID( (PRIORITY_HIGH | UNICAST | SENDER_DEV_CLASS_LU | RCPT_DEV_CLASS_LIGHT | SENDER_DEV_A) , (RCPT_DEV_B) );
 	this->_can = in_can;
+}
+
+ mj818::mj818()
+{
+
 }
 
 void mj818::shine(uint8_t ocr)
@@ -20,7 +40,8 @@ void mj818::shine(uint8_t ocr)
 	else
 	this->_data[1] = ocr;
 
-	this->_can.sendMsgBuf(0x02, 0, this->_dlc, this->_data, true);
+	this->_can.sendMsgBuf(this->_sid.get(), 0, this->_dlc, this->_data, true);
+	delay(2);
 }
 
 void mj818::brake_light(uint8_t ocr)
@@ -33,19 +54,19 @@ void mj818::brake_light(uint8_t ocr)
 	else
 		this->_data[1] = ocr;
 
-	this->_can.sendMsgBuf( 0x02, 0, this->_dlc, this->_data, true);
-}
-
-mj808::mj808(void)
-{
-	this->_ocr_current = 0x00; // initialize to 0
-	this->_ocr_requested = 0x00; // initialize to 0
+	this->_can.sendMsgBuf(this->_sid.get(), 0, this->_dlc, this->_data, true);
+	delay(2);
 }
 
  mj808::mj808(MCP_CAN in_can)
 {
-	mj808(); // call default constructor
+	this->_sid = SID( (PRIORITY_HIGH | UNICAST | SENDER_DEV_CLASS_LU | RCPT_DEV_CLASS_LIGHT | SENDER_DEV_A) , (RCPT_DEV_A) );
 	this->_can = in_can;
+}
+
+ mj808::mj808()
+{
+
 }
 
 void mj808::shine(uint8_t ocr)
@@ -58,8 +79,9 @@ void mj808::shine(uint8_t ocr)
 	else
 		this->_data[1] = ocr;
 
-	this->_can.sendMsgBuf(0x02, 0, this->_dlc, this->_data, true);
+	this->_can.sendMsgBuf(this->_sid.get(), 0, this->_dlc, this->_data, true);
 	this->_ocr_current = ocr; // class-wide setting of ocr
+	delay(2);
 }
 
 void mj808::high_beam(uint8_t ocr) // brightens up the front lamp - aka high beam light
@@ -78,7 +100,9 @@ void mj808::high_beam(uint8_t ocr) // brightens up the front lamp - aka high bea
 	if (ocr <= _ocr_current) // ocr == 0x00 is the special case - it is not neccesarily off
 		this->_data[1] = _ocr_current; // get dimmer
 
-	this->_can.sendMsgBuf( 0x02, 0, this->_dlc, this->_data, true);
+	//this->_can.sendMsgBuf(this->_sid.get(), 0, this->_dlc, this->_data, true);
+	this->_can.sendMsg(this->_sid.get(), 0, 0, this->_dlc, this->_data);
+	delay(2);
 }
 
 // lets util LED blink up to 6 times either red or green
@@ -110,7 +134,8 @@ void mj808::util_led_blink(uint8_t color, uint8_t count)
 
 	this->_data[0] |= count; // AND the count
 
-	this->_can.sendMsgBuf( 0x02, 0, this->_dlc, this->_data, true); // send the command
+	this->_can.sendMsgBuf(this->_sid.get(), 0, this->_dlc, this->_data, true); // send the command
+	delay(2);
 }
 
 // turns either green or red util. LED off
@@ -124,7 +149,8 @@ void mj808::util_led_off(uint8_t color)
 	if (color == GREEN) // if the color is green
 		this->_data[0] = UTIL_LED_GREEN_OFF; // set off command
 
-	this->_can.sendMsgBuf(0x02, 0, this->_dlc, this->_data, true); // send the command
+	this->_can.sendMsgBuf(this->_sid.get(), 0, this->_dlc, this->_data, true); // send the command
+	delay(2);
 }
 
 // turns either green or red util. LED on
@@ -138,5 +164,6 @@ void mj808::util_led_on(uint8_t color)
 	if (color == GREEN) // if the color is green
 		this->_data[0] = UTIL_LED_GREEN_ON; // set on command
 
-	this->_can.sendMsgBuf(0x02, 0, this->_dlc, this->_data, true); // send the command
+	this->_can.sendMsgBuf(this->_sid.get(), 0, this->_dlc, this->_data, true); // send the command
+	delay(2);
 }
