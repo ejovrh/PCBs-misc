@@ -132,25 +132,26 @@
 #define BROADCAST 0x40 // default 0, used by the sender
 #define UNICAST 0x00
 // b5:4
-#define SENDER_DEV_CLASS_SENSOR 0x30
+#define SENDER_DEV_CLASS_SENSOR 0x30 // sender device class, always populate on self
 #define SENDER_DEV_CLASS_LIGHT 0x20
 #define SENDER_DEV_CLASS_PWR_SRC 0x10
-#define SENDER_DEV_CLASS_LU 0x00// identifies sender, populate on self
+#define SENDER_DEV_CLASS_LU 0x00
 #define SENDER_DEV_CLASS_BLANK 0x00
 // b3:2
-#define RCPT_DEV_CLASS_SENSOR 0x0C
-#define RCPT_DEV_CLASS_LIGHT 0x08
-#define RCPT_DEV_CLASS_PWR_SRC 0x04
-#define RCPT_DEV_CLASS_LU 0x00 // identifies recipient, populate when sending, on self use RCPT_DEV_CLASS_BLANK
-#define RCPT_DEV_CLASS_BLANK 0x00
-// b1:0
-#define SENDER_DEV_D 0x03 // identifies sender, populate on self
-#define SENDER_DEV_C 0x02
-#define SENDER_DEV_B 0x01
+#define SENDER_DEV_D 0x0C // sender device ID, always populate on self
+#define SENDER_DEV_C 0x08
+#define SENDER_DEV_B 0x04
 #define SENDER_DEV_A 0x00
 #define SENDER_DEV_BLANK 0x00
+// b1:0
+#define RCPT_DEV_CLASS_SENSOR 0x03 // recipient device class, populate when sending, on self use RCPT_DEV_BLANK
+#define RCPT_DEV_CLASS_LIGHT 0x02
+#define RCPT_DEV_CLASS_PWR_SRC 0x01
+#define RCPT_DEV_CLASS_LU 0x00
+#define RCPT_DEV_CLASS_BLANK 0x00
+
 // b7:6
-#define RCPT_DEV_D 0xC0 // identifies recipient, populate when sending, on self use RCPT_DEV_BLANK
+#define RCPT_DEV_D 0xC0 // recipient device ID, populate when sending, on self use RCPT_DEV_BLANK
 #define RCPT_DEV_C 0x80
 #define RCPT_DEV_B 0x40
 #define RCPT_DEV_A 0x00
