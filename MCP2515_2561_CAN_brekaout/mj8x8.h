@@ -63,6 +63,29 @@
 #define ARGUMENT data[1]
 
 // command byte structure
+#define CMND_ANNOUNCE 0x00 // command to register self on other devices (announce-like broadcast)
+	#define DEV_0A 0 // main (1st) logic unit
+		#define LU 0
+	#define DEV_0B 1 //	2nd logic unit
+	#define DEV_0C 2 //	3rd logic unit
+	#define DEV_0D 3 //	4th logic unit
+	#define DEV_1A 4 //	dynamo1
+		#define DYN1 4
+	#define DEV_1B 5 //	dynamo2
+		#define DYN2 5
+	#define DEV_1C 6 //	battery
+		#define BATT 6
+	#define DEV_1D 7 //	solar cell
+	#define DEV_2A 8 //	mj808
+		#define MJ808 8
+	#define DEV_2B 9 //	mj818
+		#define MJ818 9
+	#define DEV_2C 10 //	??
+	#define DEV_2D 11 //	??
+	#define DEV_3A 12 //	cadence
+	#define DEV_3B 13 //	radar
+	#define DEV_3C 14 //	??
+	#define DEV_3D 15 //	??
 #define CMND_UTIL_LED 0x10 // command for utility LED operation (color, on, off, blink)
 	#define GREEN 0x00
 	#define RED 0x08
