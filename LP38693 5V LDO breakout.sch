@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.0.1">
+<eagle version="9.3.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -8000,11 +8000,26 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <plain>
 </plain>
 <instances>
-<instance part="IC1" gate="G$1" x="45.72" y="38.1"/>
-<instance part="C1" gate="G$1" x="21.59" y="45.72"/>
-<instance part="C2" gate="G$1" x="63.5" y="45.72"/>
-<instance part="R1" gate="G$1" x="80.01" y="27.94"/>
-<instance part="JP1" gate="A" x="113.03" y="66.04" rot="R180"/>
+<instance part="IC1" gate="G$1" x="45.72" y="38.1" smashed="yes">
+<attribute name="NAME" x="40.64" y="45.72" size="1.27" layer="95"/>
+<attribute name="VALUE" x="40.64" y="30.48" size="1.27" layer="96"/>
+</instance>
+<instance part="C1" gate="G$1" x="21.59" y="45.72" smashed="yes">
+<attribute name="NAME" x="23.114" y="46.101" size="1.778" layer="95"/>
+<attribute name="VALUE" x="23.114" y="41.021" size="1.778" layer="96"/>
+</instance>
+<instance part="C2" gate="G$1" x="63.5" y="45.72" smashed="yes">
+<attribute name="NAME" x="65.024" y="46.101" size="1.778" layer="95"/>
+<attribute name="VALUE" x="65.024" y="41.021" size="1.778" layer="96"/>
+</instance>
+<instance part="R1" gate="G$1" x="80.01" y="27.94" smashed="yes">
+<attribute name="NAME" x="76.2" y="29.4386" size="1.778" layer="95"/>
+<attribute name="VALUE" x="76.2" y="24.638" size="1.778" layer="96"/>
+</instance>
+<instance part="JP1" gate="A" x="113.03" y="66.04" smashed="yes" rot="R180">
+<attribute name="NAME" x="119.38" y="60.325" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="119.38" y="73.66" size="1.778" layer="96" rot="R180"/>
+</instance>
 </instances>
 <busses>
 </busses>
